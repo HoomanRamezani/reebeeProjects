@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/container"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/foreground"
+	tools:ignore="ContentDescription,RtlSymmetry,UseCompoundDrawables">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/item_options"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/activity_margin"
+		android:layout_marginEnd="@dimen/item_options_margin"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/quantity"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:paddingBottom="@dimen/activity_half_margin"
+			android:paddingTop="@dimen/activity_eighth_margin"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent">
+
+			<ImageView
+				android:id="@+id/quantity_edit_icon"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center_vertical"
+				android:src="@drawable/ic_quantity"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintStart_toStartOf="parent"/>
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/quantity_edit_title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/activity_three_quarter_margin"
+				android:gravity="start|center_vertical"
+				android:hint="@string/add_quantity"
+				android:textAppearance="@style/TextAppearance.Small"
+				android:textColor="@color/text"
+				android:textColorHint="@color/inactive"
+				app:layout_constraintBottom_toBottomOf="@id/quantity_edit_icon"
+				app:layout_constraintStart_toEndOf="@id/quantity_edit_icon"
+				app:layout_constraintTop_toTopOf="@id/quantity_edit_icon"/>
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/quantity_unit"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				android:layout_marginStart="@dimen/activity_quarter_margin"
+				android:gravity="start|center_vertical"
+				android:text="@string/quantity_item"
+				android:textAppearance="@style/TextAppearance.Small"
+				android:textColor="@color/text"
+				app:layout_constraintBottom_toBottomOf="@id/quantity_edit_icon"
+				app:layout_constraintTop_toTopOf="@id/quantity_edit_icon"
+				app:layout_constraintEnd_toStartOf="@id/quantity_total"
+				app:layout_constraintStart_toEndOf="@id/quantity_edit_title"/>
+
+			<LinearLayout
+				android:id="@+id/quantity_total"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:layout_marginTop="@dimen/activity_eighth_margin"
+				android:layout_marginEnd="@dimen/activity_half_margin"
+				android:gravity="end"
+				android:elevation="10dp"
+				app:layout_constraintBottom_toBottomOf="@id/quantity_edit_icon"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="@id/quantity_edit_icon">
+
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/total_title"
+					android:layout_width="@dimen/item_options_total_width"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="@dimen/activity_half_margin"
+					android:gravity="end|center_vertical"
+					android:text="@string/total"
+					android:textAppearance="@style/TextAppearance.Small"
+					android:textColor="@color/text" />
+
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/total_value"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textStyle="bold"
+					android:gravity="end"
+					android:minWidth="@dimen/item_options_total_value_width"
+					android:textAppearance="@style/TextAppearance.Small"
+					android:textColor="@color/text"/>
+
+			</LinearLayout>
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/notes"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:background="@color/foreground"
+			android:paddingTop="@dimen/activity_eighth_margin"
+			android:paddingBottom="@dimen/activity_half_margin"
+			app:layout_constraintBottom_toTopOf="@id/quantity"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent">
+
+			<ImageView
+				android:id="@+id/notes_edit_icon"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/icon_note"
+				app:layout_constraintEnd_toStartOf="@id/notes_desc"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"/>
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/notes_desc"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/activity_three_quarter_margin"
+				android:gravity="center_vertical"
+				android:hint="@string/note_default"
+				android:textAppearance="@style/TextAppearance.Small"
+				android:textColor="@color/text"
+				android:textColorHint="@color/inactive"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toEndOf="@id/notes_edit_icon"
+				app:layout_constraintTop_toTopOf="@id/notes_edit_icon"
+				app:layout_constraintBottom_toBottomOf="parent"/>
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/shopping_list_item_layout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/foreground"
+		android:foreground="@drawable/view_click"
+		android:paddingEnd="@dimen/activity_margin"
+		android:paddingBottom="@dimen/activity_half_margin"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<com.widgets.ActionableIconView
+			android:id="@+id/actionable_icon_view"
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			app:layout_constraintBottom_toBottomOf="@id/item_info_layout"
+			app:layout_constraintEnd_toStartOf="@+id/item_info_layout"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:off_drawable="@drawable/ic_checked_not_primary"
+			app:on_drawable="@drawable/ic_checked_primary"
+			tools:layout_width="@dimen/actionable_icon_view_size" />
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/item_info_layout"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:foregroundGravity="center_vertical"
+			android:paddingTop="@dimen/activity_half_margin"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@id/actionable_icon_view"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<FrameLayout
+				android:id="@+id/item_image_layout"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="@dimen/activity_margin"
+				android:background="@drawable/view_rounded_white"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toStartOf="@+id/title_text_view"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent">
+
+				<ImageView
+					android:id="@+id/item_image_view"
+					android:layout_width="@dimen/item_image_size"
+					android:layout_height="@dimen/item_image_size"
+					android:layout_gravity="center_vertical"
+					android:adjustViewBounds="true"
+					android:visibility="gone" />
+
+				<ImageView
+					android:id="@+id/item_pure_image_view"
+					android:layout_width="@dimen/item_image_size"
+					android:layout_height="@dimen/item_image_size"
+					android:layout_gravity="center_vertical"
+					android:adjustViewBounds="true"
+					android:padding="@dimen/activity_quarter_margin"
+					android:visibility="gone" />
+
+				<FrameLayout
+					android:id="@+id/grey_scale_layout"
+					android:layout_width="@dimen/item_image_size"
+					android:layout_height="@dimen/item_image_size"
+					android:layout_gravity="center_vertical"
+					android:background="@drawable/shopping_list_grey_scale"
+					android:visibility="gone"
+					tools:srcCompat="@drawable/icon"
+					tools:visibility="visible" />
+
+			</FrameLayout>
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/title_text_view"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:ellipsize="end"
+				android:maxLines="2"
+				android:textAppearance="@style/TextAppearance.Small"
+				app:layout_constraintBottom_toTopOf="@+id/price_layout"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toEndOf="@+id/item_image_layout"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintVertical_chainStyle="packed"
+				tools:text="@string/sample_title" />
+
+			<LinearLayout
+				android:id="@+id/price_layout"
+				android:visibility="gone"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				app:layout_constraintBottom_toTopOf="@+id/tag_text_view"
+				app:layout_constraintEnd_toEndOf="@id/title_text_view"
+				app:layout_constraintStart_toStartOf="@id/title_text_view"
+				app:layout_constraintTop_toBottomOf="@id/title_text_view">
+
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/price_text_view"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:ellipsize="end"
+					android:lines="1"
+					android:maxLines="1"
+					android:singleLine="true"
+					android:textAppearance="@style/TextAppearance.Medium"
+					android:textColor="@color/secondary_text"
+					android:textStyle="bold"
+					tools:text="@string/sample_price" />
+
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/price_kg_text_view"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="bottom"
+					android:layout_marginStart="@dimen/activity_half_margin"
+					android:layout_marginBottom="@dimen/text_base_line_offset"
+					android:ellipsize="end"
+					android:lines="1"
+					android:maxLines="1"
+					android:singleLine="true"
+					android:textAppearance="@style/TextAppearance.Small"
+					android:textColor="@color/transparent_text"
+					tools:text="@string/sample_price" />
+
+			</LinearLayout>
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/tag_text_view"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:ellipsize="end"
+				android:lines="1"
+				android:maxLines="1"
+				android:singleLine="true"
+				android:textAppearance="@style/TextAppearance.Small"
+				android:textColor="@color/transparent_text"
+				app:layout_constraintBottom_toTopOf="@+id/promotion_image_view"
+				app:layout_constraintEnd_toEndOf="@id/title_text_view"
+				app:layout_constraintStart_toStartOf="@id/title_text_view"
+				app:layout_constraintTop_toBottomOf="@id/price_layout"
+				tools:text="@string/expires_tomorrow" />
+
+			<ImageView
+				android:id="@+id/promotion_image_view"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="start"
+				android:layout_marginEnd="@dimen/activity_half_margin"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toStartOf="@id/promotion_text_view"
+				app:layout_constraintStart_toStartOf="@id/title_text_view"
+				app:layout_constraintTop_toBottomOf="@id/tag_text_view"
+				tools:srcCompat="@drawable/icon" />
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/promotion_text_view"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:ellipsize="end"
+				android:gravity="center_vertical"
+				android:lines="1"
+				android:maxLines="1"
+				android:singleLine="true"
+				android:textAppearance="@style/TextAppearance.Small"
+				app:layout_constraintBottom_toBottomOf="@id/promotion_image_view"
+				app:layout_constraintEnd_toEndOf="@id/title_text_view"
+				app:layout_constraintStart_toEndOf="@id/promotion_image_view"
+				app:layout_constraintTop_toTopOf="@id/promotion_image_view"
+				tools:text="@string/sample_promotion" />
+
+			<androidx.constraintlayout.widget.Group
+				android:id="@+id/promotion_group"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:constraint_referenced_ids="promotion_image_view,promotion_text_view" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<FrameLayout
+		android:id="@+id/item_options_expand"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingStart="@dimen/activity_half_margin"
+		android:paddingTop="@dimen/activity_margin"
+		android:paddingEnd="@dimen/activity_margin"
+		android:paddingBottom="@dimen/activity_quarter_margin"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent">
+
+		<ImageView
+			android:id="@+id/expand_icon"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:tint="@android:color/black"
+			app:srcCompat="@drawable/arrow_expand_collapse_animated" />
+
+	</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
