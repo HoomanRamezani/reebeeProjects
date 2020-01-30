@@ -97,19 +97,12 @@ class AutoDeleteDialog : BaseDialog() {
     // Set no thanks button click
     noThanksButton.setOnClickListener {
       // Log auto delete selection analytic event
-      EventLoggingService.logEvent(context, AnalyticEvents.analyticEvent(
-          AnalyticEvents.AUTO_DELETE, AnalyticEvents.RESPONSE_ACTION)
-          .putSelectionType(AnalyticEvents.NO_THANKS))
 
       safeDismiss()
     }
 
     // Set yes button click
     yesButton.setOnClickListener {
-      // Log auto delete selection analytic event
-      EventLoggingService.logEvent(context, AnalyticEvents.analyticEvent(
-          AnalyticEvents.AUTO_DELETE, AnalyticEvents.RESPONSE_ACTION)
-          .putSelectionType(AnalyticEvents.YES))
 
       val intent = Intent(context, MoreActivity::class.java)
       intent.putExtra("highlight", true)
